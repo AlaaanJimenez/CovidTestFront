@@ -1,9 +1,6 @@
+
 package com.company;
-
-
-import com.company.vistaPrincipal.VistaPrincipalTemplate;
-import client.login.LoginTemplate;
-
+import client.login.LoginComponent;
 import javax.swing.*;
 
 public class Main {
@@ -13,8 +10,7 @@ public class Main {
         Runnable runApplication = new Runnable () {
             public void run(){
                 //VistaPrincipalTemplate vista = new VistaPrincipalTemplate();
-                LoginTemplate vista = new LoginTemplate();
-                vista.getClass();
+                LoginComponent vista = new LoginComponent();
 
             }
         };

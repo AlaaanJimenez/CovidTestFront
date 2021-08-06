@@ -10,10 +10,10 @@ public class RecursosService {
 
     private String USER_PATH,IMAGE_PATH,BACKGROUND2_PATH;
     private Color colorPrincipal, colorGrisOscuro,colorSecundario;
-    private Font fTitulo;
+    private Font fTitulo,fLigera;
     private Cursor cGeneral;
     private Border bInferiorTitulo,bInferiormate;
-    private ImageIcon iFondo, iCerrar,iFondo2,iUsuario,iClave,iDimAux,iGithub,iFacebook,iLogo;
+    private ImageIcon iFondo, iCerrar,iFondo2,iMinimizar,iUsuario,iClave,iDimAux,iGithub,iFacebook,iLogo;
     static private RecursosService servicio;
 
 
@@ -38,6 +38,8 @@ public class RecursosService {
 
     private void crearFuentes() {
         fTitulo=new Font("Swing",Font.PLAIN,30);
+        fLigera = new Font("LuzSans-Book", Font.PLAIN, 12);
+
     }
 
     private void crearCursores() { cGeneral=new Cursor(Cursor.HAND_CURSOR);}
@@ -55,6 +57,8 @@ public class RecursosService {
         iGithub=new ImageIcon(("" + USER_PATH + "\\resourses\\imagenes\\github.jpg"));
         iFacebook=new ImageIcon(("" + USER_PATH + "\\resourses\\imagenes\\facebook.png"));
         iCerrar=new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\cerrar.png");
+        iMinimizar = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\minimizar.png");
+        iLogo=new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\logo.png");
 
     }
 
@@ -76,6 +80,8 @@ public class RecursosService {
     public Color getColorGrisOscuro() { return colorGrisOscuro; }
     public Color getColorSecundario(){ return colorSecundario; }
     public Font getFontTitulo() { return fTitulo; }
+    public Font getFontLigera() { return fLigera; }
+
 
     public Border getbInferiormate() {
         return bInferiormate;
@@ -113,6 +119,7 @@ public class RecursosService {
     public ImageIcon getiFacebook() {
         return iFacebook;
     }
+    public ImageIcon getIMinimizar() { return iMinimizar; }
 
 
     public static RecursosService getService() {

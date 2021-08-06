@@ -31,10 +31,12 @@ public class LoginTemplate extends JFrame {
     // Declaración servicios
     private ObjGraficosService sObjGraficos;
     private RecursosService sRecursos;
+    private LoginComponent loginComponent;
 
-    public LoginTemplate() {
+    public LoginTemplate(LoginComponent loginComponent) {
         this.USER_PATH=System.getProperty("user.dir");
 
+        this.loginComponent = loginComponent;
         sObjGraficos = ObjGraficosService.getService();
         sRecursos = RecursosService.getService();
 
@@ -60,6 +62,9 @@ public class LoginTemplate extends JFrame {
     }
 
 
+
+
+    //FRONT
     public void crearObjetosDecoradores() {
         iFondo = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\background2.jpg");
         iFondo2 = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\background.jpg");
@@ -102,6 +107,7 @@ public class LoginTemplate extends JFrame {
                 "c",
                 true
         );
+        bEntrar.addActionListener(loginComponent);
         pDerecha.add(bEntrar);
 
 
@@ -117,6 +123,7 @@ public class LoginTemplate extends JFrame {
                 "c",
                 true
         );
+        bRegistrarse.addActionListener(loginComponent);
         pDerecha.add(bRegistrarse);
 
 // BOTÓN CERRAR-----------------------------------------------------------------------------
@@ -133,6 +140,7 @@ public class LoginTemplate extends JFrame {
                 "c",
                 false
         );
+        bCerrar.addActionListener(loginComponent);
         pDerecha.add(bCerrar);
 
     }
@@ -294,23 +302,18 @@ public class LoginTemplate extends JFrame {
     public JButton getbEntrar() {
         return bEntrar;
     }
-
     public JButton getbCerrar() {
         return bCerrar;
     }
-
     public JButton getbRegistrarse() {
         return bRegistrarse;
     }
-
     public JButton getbOpcion1() {
         return bOpcion1;
     }
-
     public JButton getbOpcion2() {
         return bOpcion2;
     }
-
     public JButton getbOpcion3() {
         return bOpcion3;
     }
@@ -318,10 +321,12 @@ public class LoginTemplate extends JFrame {
     public JCheckBox getCheckSi() {
         return checkSi;
     }
-
     public JCheckBox getCheckNo() {
         return checkNo;
     }
+
+    public JTextField getTNombreUsuario() { return this.tNombreUsuario; }
+    public JPasswordField getTClaveUsuario() { return this.tClaveUsuario; }
 
     public ButtonGroup getGrupo() {
         return grupo;
