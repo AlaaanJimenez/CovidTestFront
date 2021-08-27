@@ -9,10 +9,10 @@ import java.io.IOException;
 public class RecursosService {
 
     private String USER_PATH,IMAGE_PATH,BACKGROUND2_PATH;
-    private Color colorPrincipal, colorGrisOscuro,colorSecundario;
-    private Font fTitulo,fLigera;
+    private Color colorPrincipal, colorGrisOscuro,colorSecundario,colorGrisClaro;
+    private Font fTitulo,fLigera,fPrincipal;
     private Cursor cGeneral;
-    private Border bInferiorTitulo,bInferiormate;
+    private Border bInferiorTitulo,bInferiormate,borderGris;;
     private ImageIcon iFondo, iCerrar,iFondo2,iMinimizar,iUsuario,iClave,iDimAux,iGithub,iFacebook,iLogo;
     static private RecursosService servicio;
 
@@ -33,12 +33,14 @@ public class RecursosService {
         colorPrincipal = new Color(60,78,120);
         colorGrisOscuro = new Color(80, 80, 80);
         colorSecundario = new Color(151, 0, 158);
+        colorGrisClaro = new Color(249, 246, 249);
 
     }
 
     private void crearFuentes() {
         fTitulo=new Font("Swing",Font.PLAIN,30);
         fLigera = new Font("LuzSans-Book", Font.PLAIN, 12);
+        fPrincipal = new Font("Rockwell Extra Bold", Font.PLAIN, 20);
 
     }
 
@@ -47,6 +49,7 @@ public class RecursosService {
     private void crearBordes() {
         bInferiormate= BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black);
         bInferiorTitulo = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.blue);
+        borderGris = BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2, true);
     }
 
     private void crearImagenes() {
@@ -65,6 +68,11 @@ public class RecursosService {
     private void generarFuentes() {
         try {
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont( Font.createFont(
+                    Font.TRUETYPE_FONT,
+                    new File("" + USER_PATH + "\\resourses\\fuentes\\LUZRO.ttf")
+            ));
+            GraphicsEnvironment se = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont( Font.createFont(
                     Font.TRUETYPE_FONT,
                     new File("" + USER_PATH + "\\resourses\\fuentes\\swingregular.ttf")
@@ -90,8 +98,7 @@ public class RecursosService {
     //public Font getFontTPrincipal() { return fTitulo; }
     //public Font getFontSubtitulo() { return fontSubtitulo; }
     //public Font getFontMediana() { return fontMediana; }
-    public Cursor getCMano() { return cGeneral; }
-    public Border getBInferiorTitulo() { return bInferiorTitulo; }
+
     public ImageIcon getiFondo() {
         return iFondo;
     }
@@ -120,8 +127,13 @@ public class RecursosService {
         return iFacebook;
     }
     public ImageIcon getIMinimizar() { return iMinimizar; }
-
-
+    public Border getBorderGris(){ return borderGris; }
+    public Color getColorGrisClaro(){ return colorGrisClaro; }
+    public Cursor getCMano() { return cGeneral; }
+    public Border getBInferiorTitulo() { return bInferiorTitulo; }
+    public Font getfPrincipal(){
+        return this.fPrincipal;
+}
     public static RecursosService getService() {
         if (servicio == null) servicio = new RecursosService();
         return servicio;

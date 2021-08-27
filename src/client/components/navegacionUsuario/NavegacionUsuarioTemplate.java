@@ -122,7 +122,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
                         .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
         );
         this.bAmigos = sObjGraficos.construirJButton(
-                "      Amigos",
+                "      Resultados Testeos",
                 30, 130, 200, 40,
                 sRecursos.getCMano(),
                 iDimAux,

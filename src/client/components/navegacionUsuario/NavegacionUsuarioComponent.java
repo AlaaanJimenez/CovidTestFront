@@ -20,8 +20,11 @@ public class NavegacionUsuarioComponent implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Muestra en consola los strings asignados a cada boton
+        System.out.println(e.getActionCommand().trim());
         this.vistaPrincipalComponent.mostrarComponente(e.getActionCommand().trim());
     }
+
 
     public NavegacionUsuarioTemplate getNavegacionUsuarioTemplate() {
         return this.navegacionUsuarioTemplate;

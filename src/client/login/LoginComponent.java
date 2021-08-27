@@ -50,6 +50,9 @@ public class LoginComponent implements ActionListener {
         );
     }
     public void entrar() {
+        /*Se realiza comprobacion para evitar la creacion de mas de 1 componente de la
+            clase vistaPrincipal e pregunta si el objeto de la clase VistaPrincipalComponent no se ha ejemplificado, si aun
+            no se ha entrado a la vista principal este objeto efectivamente estará vacío ya que no se ha ejemplificado antes.*/
         if (vistaPrincipal == null)
             this.vistaPrincipal = new VistaPrincipalComponent(this);
         else
