@@ -14,6 +14,7 @@ public class NavegacionUsuarioComponent implements ActionListener {
     public NavegacionUsuarioComponent(VistaPrincipalComponent vistaPrincipalComponent) {
         this.vistaPrincipalComponent = vistaPrincipalComponent;
         this.navegacionUsuarioTemplate = new NavegacionUsuarioTemplate(this);
+
     }
 
 

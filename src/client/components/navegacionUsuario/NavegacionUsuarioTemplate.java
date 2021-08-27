@@ -24,7 +24,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
     private JButton bInicio, bPerfil, bAmigos, bProductos, bConfiguracion, bCerrarSesion;
 
     // Declaración Objetos Decoradores
-    private ImageIcon iIconoUsuario, iInicio, iPerfil, iAmigos, iProductos,iConfiguracion, iCerrarSesion, iImagenUsuario, iDimAux;
+    private ImageIcon iIconoUsuario, iInicio, iPerfil, iAmigos, iProductos,iConfiguracion, iCerrarSesion, iImagenUsuario, iDimAux,iCerrarSesion2;
     private Border bVacio;
 
     public NavegacionUsuarioTemplate(NavegacionUsuarioComponent navegacionUsuarioComponent){
@@ -63,13 +63,15 @@ public class NavegacionUsuarioTemplate extends JPanel {
 
     public void crearObjetosDecoradores(){
         this.iIconoUsuario = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\usuario_navegacion.png");
-        this.iInicio = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\inicio.png.png");
+        this.iInicio = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\inicio.png");
         this.iPerfil = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\perfil.png");
         this.iAmigos = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\amigos.png");
         this.iProductos = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\productos.png");
         this.iConfiguracion = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\configuracion.png");
         this.iCerrarSesion = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\salir.png");
         this.iImagenUsuario = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\perfiles\\perfil1.png");
+        this.iCerrarSesion2 = new ImageIcon("" + USER_PATH + "\\resourses\\imagenes\\cerrarSesion.png");
+
         this.bVacio = new EmptyBorder(2, 20, 2, 2);
     }
 
@@ -84,7 +86,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 30, 30, 200, 40,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontTitulo(),
+                sRecursos.getFontLigera(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -104,7 +106,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 30, 80, 200, 40,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontTitulo(),
+                sRecursos.getFontLigera(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -124,7 +126,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 30, 130, 200, 40,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontTitulo(),
+                sRecursos.getFontLigera(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -134,25 +136,6 @@ public class NavegacionUsuarioTemplate extends JPanel {
         this.bAmigos.addActionListener(navegacionUsuarioComponent);
         this.pInferior.add(bAmigos);
 
-        // BOTÓN PRODUCTOS--------------------------------------------------------------------
-        iDimAux = new ImageIcon(
-                iProductos.getImage()
-                        .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
-        );
-        this.bProductos = sObjGraficos.construirJButton(
-                "      Productos",
-                30, 180, 200, 40,
-                sRecursos.getCMano(),
-                iDimAux,
-                sRecursos.getFontTitulo(),
-                null,
-                Color.WHITE,
-                bVacio,
-                "l",
-                false
-        );
-        this.bProductos.addActionListener(navegacionUsuarioComponent);
-        this.pInferior.add(bProductos);
 
         // BOTÓN CONFIGURACIÓN--------------------------------------------------------------------
         iDimAux = new ImageIcon(
@@ -161,10 +144,10 @@ public class NavegacionUsuarioTemplate extends JPanel {
         );
         this.bConfiguracion = sObjGraficos.construirJButton(
                 "      Configuraciones",
-                30, 230, 200, 40,
+                30, 180, 200, 40,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontTitulo(),
+                sRecursos.getFontLigera(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -176,15 +159,15 @@ public class NavegacionUsuarioTemplate extends JPanel {
 
         // BOTÓN CERRAR SESIÓN--------------------------------------------------------------------
         iDimAux = new ImageIcon(
-                iCerrarSesion.getImage()
+                iCerrarSesion2.getImage()
                         .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
         );
         this.bCerrarSesion = sObjGraficos.construirJButton(
                 "      Cerrar Sesión",
-                30, 280, 200, 40,
+                30, 230, 200, 40,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontTitulo(),
+                sRecursos.getFontLigera(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -196,6 +179,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
     }
 
     public void crearJLabels(){
+
         // LABEL ICONO USUARIO--------------------------------------------------------------------
         iDimAux = new ImageIcon(
                 iIconoUsuario.getImage()
@@ -216,7 +200,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 "Nombre de Usuario",
                 ((this.pSuperior.getWidth() - 200) / 2) + 10, 20, 200, 40,
                 null, null,
-                sRecursos.getFontTitulo(),
+                sRecursos.getFontLigera(),
                 null,
                 Color.WHITE,
                 null,
@@ -241,8 +225,8 @@ public class NavegacionUsuarioTemplate extends JPanel {
 
         // LABEL ESLOGAN--------------------------------------------------------------------
         //se usan etiquetas HTML para poder dar saltos de linea al texto y ademas brindar de varias otras características
-        this.lEslogan = sObjGraficos.construirJLabel(
-                "<html><div align='center'> Nuestros clientes son <br/>lo mas importante</div></html>",
+        /*this.lEslogan = sObjGraficos.construirJLabel(
+                "<html><div align='center'> La salud <br/>Es de todos</div></html>",
                 (this.pSuperior.getWidth() - 180) / 2, 265, 180, 40,
                 null, null,
                 sRecursos.getFontLigera(),
@@ -251,6 +235,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 null,
                 "c");
         this.pSuperior.add(lEslogan);
+*/
     }
 
 }

@@ -19,11 +19,15 @@ public class VistaPrincipalComponent {
         this.loginComponent = loginComponent;
         this.vistaPrincipalTemplate = new VistaPrincipalTemplate(this);
         this.barraTituloComponent = new BarraTituloComponent(this);
-       // this.navegacionUsuarioComponent = new NavegacionUsuarioComponent(this);
+        this.navegacionUsuarioComponent = new NavegacionUsuarioComponent(this);
 
 
         vistaPrincipalTemplate.getPBarra()
                 .add(barraTituloComponent.getBarraTituloTemplate());
+
+        vistaPrincipalTemplate.getPNavegacion().add(
+                navegacionUsuarioComponent.getNavegacionUsuarioTemplate()
+        );
 
     }
 
