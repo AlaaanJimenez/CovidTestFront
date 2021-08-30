@@ -91,6 +91,7 @@ public class LoginTemplate extends JFrame {
                 sRecursos.getBInferiorTitulo(),
                 "c"
         );
+        tNombreUsuario.addMouseListener(loginComponent);
         pDerecha.add(tNombreUsuario);
     }
     public void crearJButtons() {
@@ -108,6 +109,7 @@ public class LoginTemplate extends JFrame {
                 true
         );
         bEntrar.addActionListener(loginComponent);
+        bEntrar.addMouseListener(loginComponent);
         pDerecha.add(bEntrar);
 
 
@@ -124,6 +126,7 @@ public class LoginTemplate extends JFrame {
                 true
         );
         bRegistrarse.addActionListener(loginComponent);
+        bRegistrarse.addMouseListener(loginComponent);
         pDerecha.add(bRegistrarse);
 
 // BOTÓN CERRAR-----------------------------------------------------------------------------
@@ -289,12 +292,12 @@ public class LoginTemplate extends JFrame {
                 sRecursos.getBInferiorTitulo(),
                 "c"
         );
+        tClaveUsuario.addMouseListener(loginComponent);
+
         pDerecha.add(tClaveUsuario);
     }
 
-//Getters
-
-
+    //Getters
     public JComboBox<String> getCbTipoUsuario() {
         return cbTipoUsuario;
     }
@@ -327,8 +330,18 @@ public class LoginTemplate extends JFrame {
 
     public JTextField getTNombreUsuario() { return this.tNombreUsuario; }
     public JPasswordField getTClaveUsuario() { return this.tClaveUsuario; }
+    public JLabel getLabels(JTextField text) {
+        if (text == tNombreUsuario) return lUsuario;
+        if (text == tClaveUsuario) return lClave;
+        return null;
+    }
+
+
 
     public ButtonGroup getGrupo() {
         return grupo;
     }
+
+    public RecursosService getRecursosService() { return sRecursos; }
+
 }

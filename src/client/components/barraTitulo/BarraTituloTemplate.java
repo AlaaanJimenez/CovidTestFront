@@ -31,6 +31,8 @@ public class BarraTituloTemplate extends JPanel {
         this.barraTituloComponent = barraTituloComponent;
         this.sObjGraficos = ObjGraficosService.getService();
         this.sRecursos = RecursosService.getService();
+        this.addMouseListener(barraTituloComponent);
+        this.addMouseMotionListener(barraTituloComponent);
 
         this.crearObjetosDecoradores();
         this.crearJLabels();
@@ -39,6 +41,8 @@ public class BarraTituloTemplate extends JPanel {
         this.setSize(850, 50);
         this.setBackground(Color.WHITE);
         this.setLayout(null);
+        this.addMouseListener(barraTituloComponent);
+        this.addMouseMotionListener(barraTituloComponent);
         this.setVisible(true);
     }
 

@@ -5,11 +5,18 @@ import client.vistaPrincipal.VistaPrincipalComponent;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class LoginComponent implements ActionListener {
+public class LoginComponent extends MouseAdapter implements ActionListener {
 
     private LoginTemplate loginTemplate;
     private VistaPrincipalComponent vistaPrincipal;
+
+    private String[] placeholders = { "Nombre Usuario", "Clave Usuario" };
+    private JTextField text;
+    private JButton boton;
+    private JLabel label;
 
     public LoginComponent() {
         this.loginTemplate = new LoginTemplate(this);
@@ -64,10 +71,34 @@ public class LoginComponent implements ActionListener {
     }
 
 
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if (e.getSource() instanceof JButton) {
+            boton = ((JButton) e.getSource());
+            boton.setBackground(loginTemplate.getRecursosService().getColorPrincipalOscuro());
+        }
+    }
 
+    @Override
+    public void mouseExited (MouseEvent e){
+            if (e.getSource() instanceof JButton) {
+                boton = ((JButton) e.getSource());
+                boton.setBackground(loginTemplate.getRecursosService().getColorPrincipal());
+            }
 
+        }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
 
+        //Al posicionarse sobre el Textfield  elimina el texto solo cuando es == a uno de los placeholders
+
+            if (e.getSource() instanceof JTextField) {
+                text = ((JTextField) e.getSource());
+                if (text.getText().equals(placeholders[0]) ||text.getText().equals(placeholders[1]))
+                    text.setText("");
+            }
+        }
 
 
 }

@@ -6,6 +6,7 @@ import client.components.navegacionUsuario.NavegacionUsuarioComponent;
 import client.login.LoginComponent;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class VistaPrincipalComponent {
 
@@ -15,8 +16,8 @@ public class VistaPrincipalComponent {
     private BarraTituloComponent barraTituloComponent;
     private NavegacionUsuarioComponent navegacionUsuarioComponent;
     private LoginComponent loginComponent;
-
     private InicioComponent inicioComponent;
+
 
     public VistaPrincipalComponent(LoginComponent loginComponent) {
         this.loginComponent = loginComponent;
@@ -44,26 +45,12 @@ public class VistaPrincipalComponent {
 //METODOS
 
 
-    public void cerrar() {
-        System.exit(0);
-    }
-
-    public void minimizar() {
-        this.vistaPrincipalTemplate.setExtendedState(Frame.ICONIFIED);
-    }
-
-
-    //Getters
-    public VistaPrincipalTemplate getVistaPrincipalTemplate() {
-        return this.vistaPrincipalTemplate;
-    }
-
     public void mostrarComponente(String comando) {
 
     /*   Cada vez que se vuelva a llamar un nuevo componente para ser incorporado en el panel pPrincipal es necesario que antes de la incorporación
            se remueva lo que este panel contiene, para que esto sea posible se debe llamar al método removeAll().
            Esto debe hacerse justamente antes de que empiece el switch: */
-    vistaPrincipalTemplate.getPPrincipal().removeAll();
+        vistaPrincipalTemplate.getPPrincipal().removeAll();
 
         switch (comando) {
             /*De esta forma la primera vez que se oprima el botón inicio se creara el objeto en memoria y se incorporara en la ventana principal,
@@ -76,9 +63,9 @@ public class VistaPrincipalComponent {
                         inicioComponent.getInicioTemplate()
                 );*/
             case "Inicio":
-            vistaPrincipalTemplate.getPPrincipal()
-                    .add(inicioComponent.getInicioTemplate());
-            break;
+                vistaPrincipalTemplate.getPPrincipal()
+                        .add(inicioComponent.getInicioTemplate());
+                break;
 
             case "Perfil":
                 break;
@@ -94,5 +81,23 @@ public class VistaPrincipalComponent {
         vistaPrincipalTemplate.repaint();
 
     }
+    public void moverVentana(int posicionX, int posicionY){
+        this.vistaPrincipalTemplate.setLocation(posicionX, posicionY);
+    }
+    public void cerrar() {
+        System.exit(0);
+    }
+    public void minimizar() {
+        this.vistaPrincipalTemplate.setExtendedState(Frame.ICONIFIED);
+    }
+
+
+    //Getters
+    public VistaPrincipalTemplate getVistaPrincipalTemplate() {
+        return this.vistaPrincipalTemplate;
+    }
+
+
+
 }
 

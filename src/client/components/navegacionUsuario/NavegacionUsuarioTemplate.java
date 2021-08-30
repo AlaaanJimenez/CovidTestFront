@@ -79,34 +79,38 @@ public class NavegacionUsuarioTemplate extends JPanel {
         // BOTÓN INICIO--------------------------------------------------------------------
         iDimAux = new ImageIcon(
                 iInicio.getImage()
-                        .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
+                        .getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)
         );
         this.bInicio = sObjGraficos.construirJButton(
-                "      Inicio",
-                30, 30, 200, 40,
+                "   Inicio",
+                5, 20, 250, 55,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontLigera(),
+                sRecursos.getfPrincipal(),
                 null,
                 Color.WHITE,
                 bVacio,
                 "l",
                 false
         );
+
+             //Eventos
         this.bInicio.addActionListener(navegacionUsuarioComponent);
+        this.bInicio.addMouseListener(navegacionUsuarioComponent);
+
         this.pInferior.add(bInicio);
 
         // BOTÓN PERFIL--------------------------------------------------------------------
         iDimAux = new ImageIcon(
                 iPerfil.getImage()
-                        .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
+                        .getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)
         );
         this.bPerfil = sObjGraficos.construirJButton(
-                "      Perfil",
-                30, 80, 200, 40,
+                "   Perfil",
+                5, 80, 250, 55,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontLigera(),
+                sRecursos.getfPrincipal(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -114,19 +118,20 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 false
         );
         this.bPerfil.addActionListener(navegacionUsuarioComponent);
+        this.bPerfil.addMouseListener(navegacionUsuarioComponent);
         this.pInferior.add(bPerfil);
 
         // BOTÓN AMIGOS--------------------------------------------------------------------
         iDimAux = new ImageIcon(
                 iAmigos.getImage()
-                        .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
+                        .getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)
         );
         this.bAmigos = sObjGraficos.construirJButton(
-                "      Resultados Testeos",
-                30, 130, 200, 40,
+                "   Testeos",
+                3, 140, 250, 55,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontLigera(),
+                sRecursos.getfPrincipal(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -134,20 +139,21 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 false
         );
         this.bAmigos.addActionListener(navegacionUsuarioComponent);
+        this.bAmigos.addMouseListener(navegacionUsuarioComponent);
         this.pInferior.add(bAmigos);
 
 
         // BOTÓN CONFIGURACIÓN--------------------------------------------------------------------
         iDimAux = new ImageIcon(
                 iConfiguracion.getImage()
-                        .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
+                        .getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)
         );
         this.bConfiguracion = sObjGraficos.construirJButton(
-                "      Configuraciones",
-                30, 180, 200, 40,
+                "  Configuraciones",
+                5, 200, 250, 55,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontLigera(),
+                sRecursos.getfPrincipal(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -155,19 +161,20 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 false
         );
         this.bConfiguracion.addActionListener(navegacionUsuarioComponent);
+        this.bConfiguracion.addMouseListener(navegacionUsuarioComponent);
         this.pInferior.add(bConfiguracion);
 
         // BOTÓN CERRAR SESIÓN--------------------------------------------------------------------
         iDimAux = new ImageIcon(
                 iCerrarSesion2.getImage()
-                        .getScaledInstance(20, 20, Image.SCALE_AREA_AVERAGING)
+                        .getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)
         );
         this.bCerrarSesion = sObjGraficos.construirJButton(
-                "      Cerrar Sesión",
-                30, 230, 200, 40,
+                "  Cerrar Sesión",
+                7, 260, 250, 55,
                 sRecursos.getCMano(),
                 iDimAux,
-                sRecursos.getFontLigera(),
+                sRecursos.getfPrincipal(),
                 null,
                 Color.WHITE,
                 bVacio,
@@ -175,6 +182,7 @@ public class NavegacionUsuarioTemplate extends JPanel {
                 false
         );
         this.bCerrarSesion.addActionListener(navegacionUsuarioComponent);
+        this.bCerrarSesion.addMouseListener(navegacionUsuarioComponent);
         this.pInferior.add(bCerrarSesion);
     }
 
@@ -183,11 +191,11 @@ public class NavegacionUsuarioTemplate extends JPanel {
         // LABEL ICONO USUARIO--------------------------------------------------------------------
         iDimAux = new ImageIcon(
                 iIconoUsuario.getImage()
-                        .getScaledInstance(40, 40, Image.SCALE_AREA_AVERAGING)
+                        .getScaledInstance(50, 50, Image.SCALE_AREA_AVERAGING)
         );
         this.lIconoUsuario = sObjGraficos.construirJLabel(
                 null,
-                10, 20, 40, 40,
+                5, 10, 40, 40,
                 null,
                 iDimAux,
                 null, null, null, null,
@@ -198,9 +206,9 @@ public class NavegacionUsuarioTemplate extends JPanel {
         // LABEL NOMBRE USUARIO--------------------------------------------------------------------
         this.lNombreUsuario = sObjGraficos.construirJLabel(
                 "Nombre de Usuario",
-                ((this.pSuperior.getWidth() - 200) / 2) + 10, 20, 200, 40,
+                ((this.pSuperior.getWidth() - 180) / 2) + 10, 10, 200, 40,
                 null, null,
-                sRecursos.getFontLigera(),
+                sRecursos.getfPrincipal(),
                 null,
                 Color.WHITE,
                 null,
@@ -237,5 +245,6 @@ public class NavegacionUsuarioTemplate extends JPanel {
         this.pSuperior.add(lEslogan);
 */
     }
+
 
 }

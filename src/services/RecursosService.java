@@ -9,7 +9,7 @@ import java.io.IOException;
 public class RecursosService {
 
     private String USER_PATH,IMAGE_PATH,BACKGROUND2_PATH;
-    private Color colorPrincipal, colorGrisOscuro,colorSecundario,colorGrisClaro;
+    private Color colorPrincipal, colorGrisOscuro,colorSecundario,colorGrisClaro,colorPrincipalOscuro;
     private Font fTitulo,fLigera,fPrincipal;
     private Cursor cGeneral;
     private Border bInferiorTitulo,bInferiormate,borderGris;;
@@ -34,6 +34,7 @@ public class RecursosService {
         colorGrisOscuro = new Color(80, 80, 80);
         colorSecundario = new Color(151, 0, 158);
         colorGrisClaro = new Color(249, 246, 249);
+        colorPrincipalOscuro = new Color(30, 48, 90);
 
     }
 
@@ -49,7 +50,7 @@ public class RecursosService {
     private void crearBordes() {
         bInferiormate= BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black);
         bInferiorTitulo = BorderFactory.createMatteBorder(2, 2, 2, 2, Color.blue);
-        borderGris = BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2, true);
+        borderGris = BorderFactory.createLineBorder(Color.darkGray, 2, true);
     }
 
     private void crearImagenes() {
@@ -87,6 +88,7 @@ public class RecursosService {
     public Color getColorPrincipal() { return colorPrincipal; }
     public Color getColorGrisOscuro() { return colorGrisOscuro; }
     public Color getColorSecundario(){ return colorSecundario; }
+    public Color getColorPrincipalOscuro(){ return colorPrincipalOscuro; }
     public Font getFontTitulo() { return fTitulo; }
     public Font getFontLigera() { return fLigera; }
 

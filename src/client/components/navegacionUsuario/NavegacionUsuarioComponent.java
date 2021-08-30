@@ -2,11 +2,12 @@ package client.components.navegacionUsuario;
 
 import client.components.barraTitulo.BarraTituloTemplate;
 import client.vistaPrincipal.VistaPrincipalComponent;
+import services.RecursosService;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.event.*;
 
-public class NavegacionUsuarioComponent implements ActionListener {
+public class NavegacionUsuarioComponent extends MouseAdapter implements ActionListener {
 
     private NavegacionUsuarioTemplate navegacionUsuarioTemplate;
     private VistaPrincipalComponent vistaPrincipalComponent;
@@ -18,6 +19,14 @@ public class NavegacionUsuarioComponent implements ActionListener {
     }
 
 
+
+
+
+    public NavegacionUsuarioTemplate getNavegacionUsuarioTemplate() {
+        return this.navegacionUsuarioTemplate;
+    }
+
+//ActionListener interface
     @Override
     public void actionPerformed(ActionEvent e) {
         //Muestra en consola los strings asignados a cada boton
@@ -25,8 +34,25 @@ public class NavegacionUsuarioComponent implements ActionListener {
         this.vistaPrincipalComponent.mostrarComponente(e.getActionCommand().trim());
     }
 
+//MouseListener interface
+    @Override
+    public void mouseClicked(MouseEvent e) {}
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        //Modifica el color de los botones de navegacion al posicionarse sobre ellos
+        //Se obtiene el objeto gráfico que ha activado el evento, esto mediante el método getSource.
+        JButton boton = ((JButton) e.getSource());
+        boton.setContentAreaFilled(true);
+        boton.setBackground(RecursosService.getService().getColorPrincipalOscuro());
 
-    public NavegacionUsuarioTemplate getNavegacionUsuarioTemplate() {
-        return this.navegacionUsuarioTemplate;
+        }
+
+    public void mouseExited(MouseEvent e) {
+        //Quita el resaltado de los botones cuando el mouse no esta sobre ellos
+        JButton boton = ((JButton) e.getSource());
+        boton.setContentAreaFilled(false);
+
     }
+
+
 }
